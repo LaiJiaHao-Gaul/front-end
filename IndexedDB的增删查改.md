@@ -1,5 +1,16 @@
 # IndexedDB的增删查改
 
+## 前置概念
+
+- 数据库：  IDBDatabase对象
+- 对象仓库  IDBObjectStore对象
+- 索引：    IDBIndex对象
+- 事务：    IBDTransaction对象
+- 操作请求  IDBRequest对象
+- 指针：    IDBCursor对象
+- 主键集合：IDBKeyRange对象
+
+
 ## 日常操作流程如下
 
 ## 1. 打开数据库
@@ -175,6 +186,103 @@ read();
 ```
 
 上面代码中，objectStore.get()方法用于读取数据，参数是主键的值。
+
+## 5. 遍历数据
+
+遍历数据表格的所有记录，要使用指针对象 IDBCursor
+
+```js
+function readAll(){
+    var objectStore = db.transaction('person').objectStore('person');
+
+    objectStore.openCursor().onsuccess = function(event){
+        var cursor = event.target.result;
+
+        if(cursor){
+            console.log('Id:' + cursor.key);
+            console.log('Name: ' + cursor.value.name);
+            console.log('Age: ' + cursor.value.age);
+            console.log('Email: ' + cursor.value.email);
+            corsor.continue()
+        }else{
+            console.log('没有更多数据了')
+        }
+    }
+}
+readAll()
+```
+
+**openCursor操作是异步操作，需要监听onsuccess事件。**
+
+## 6. 更新数据
+
+更新数据用的是put方法
+
+```js
+function update(){
+    var request = db.transaction(['person'],'readwrite')
+    .objectStore('person')
+    .put({id:1,name:'李四',age:35,email:'xxx@163.com'});
+
+    request.onsuccess = function(event) {
+        console.log('数据更新成功');
+    }
+
+    request.onerror = function(event) {
+        console.log('数据更新失败')
+    }
+}
+```
+
+上面代码更新了主键为1的数据
+
+## 7. 删除数据
+
+IDBObjectStore.delete()方法用于删除记录
+
+```js
+function event(){
+    var request = db.transaction(['person'],'readwrite')
+    .objectStore
+    .delete('1')
+
+    request.onsuccess = function(event) {
+        console.log('数据删除成功')
+    }
+
+    request.onerror = function(event) {
+        console.log('数据删除失败')
+    }
+}
+```
+
+## 8. 使用索引
+
+索引的意义在于：可以让你搜索任何字段，也就是说从任意字段拿到数据记录。如果不简历索引，默认只能搜索主键（即从主键取值）。
+
+假设新建表格的时候，对name字段建立了索引。
+
+```js
+objectStore.createIndex('name','name', { unique : false });
+```
+
+现在就可以从name找到对应的数据记录了。
+
+```js
+var transaction = db.transaction(['person'],'readonly');
+var store = transaction.objectStore('person');
+var index = store.index('name');
+var request = index.get('李四');
+
+request.onsucess = function(event){
+    var result=event.target.result;
+    if(result){
+        // ...
+    }else{
+        // ...
+    }
+}
+```
 
 # API
 
