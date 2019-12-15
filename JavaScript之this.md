@@ -128,6 +128,8 @@ new > call/apply/bind > 调用位置上下文 > 默认绑定
 
 ## 箭头函数
 
+箭头函数不使用上面的规则决定this，而是根据外层（函数或全局）作用域来决定this。  
+或者说，箭头函数会几层外层函数调用的this绑定（无论this绑定到什么）。  
 箭头函数里this是和调用链中最最外层保持一致的。
 
 ``` javascript
@@ -145,6 +147,30 @@ const b = {
 
 test('Tom')//window
 b.foo.test()//window
+```
+
+同一对象箭头函数的this绑定无法被修改。例：
+
+``` javascript
+function foo(){
+    return (a) => {
+        console.log(this.a)
+    }
+}
+
+var obj1 = {
+    a:2
+}
+
+var obj2 = {
+    a:3
+}
+
+var bar = foo.call(obj1);
+bar.call(obj2) //是2而不是3！！
+
+foo.call(obj1)()//2
+foo.call(obj2)()//3
 ```
 
 以上。
