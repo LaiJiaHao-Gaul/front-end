@@ -36,7 +36,7 @@ myObject.a不需要遍历原型链，而myObject.b是遍历完原型链返回的
 而[[Put]]操作一般是由“给对象的属性赋值”触发，而[[Put]]被触发时的实际行为，取决于许多因素，最重要的因素是这个对象中是否已经存在这个属性。
 
 如果存在这个属性：[[Put]]算法的大致操作如下：  
-1. 查看属性是否是<span id = "jump">访问描述符</span>？如果是并且存在setter就调用setter方法。
+1. 查看属性是否是[访问描述符](#jump)？如果是并且存在setter就调用setter方法。
 2. 属性的数据描述符中 writable 是否是false？是false的话在非严格模式下会静默失败，严格模式下TypeError。
 3. 如果不是访问描述符 切 writable为true，则将该值设置为属性的值。
    
@@ -44,4 +44,4 @@ myObject.a不需要遍历原型链，而myObject.b是遍历完原型链返回的
 
 
 
-[访问描述符](#jump)：[JavaScript中的getter和setter](https://github.com/PythonerNunu/front-end/blob/master/JavaScript%E4%B8%AD%E7%9A%84getter%E5%92%8Csetter.md)
+<span id = "jump">访问描述符</span>：[JavaScript中的getter和setter](https://github.com/PythonerNunu/front-end/blob/master/JavaScript%E4%B8%AD%E7%9A%84getter%E5%92%8Csetter.md)
