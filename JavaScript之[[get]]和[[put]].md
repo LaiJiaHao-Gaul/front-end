@@ -44,4 +44,4 @@ myObject.a不需要遍历原型链，而myObject.b是遍历完原型链返回的
 
 
 
-[访问描述符](#jump)：[JavaScript中的getter和setter](https://github.com/PythonerNunu/front-end/blob/master/JavaScript%E4%B9%8B[[get]]%E5%92%8C[[put]].md)
+[访问描述符](#jump)：[JavaScript中的getter和setter](https://github.com/PythonerNunu/front-end/blob/master/JavaScript%E4%B8%AD%E7%9A%84getter%E5%92%8Csetter.md)
