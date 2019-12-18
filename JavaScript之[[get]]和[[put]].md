@@ -37,11 +37,13 @@ myObject.a不需要遍历原型链，而myObject.b是遍历完原型链返回的
 
 如果存在这个属性：[[Put]]算法的大致操作如下：  
 1. 查看属性是否是[访问描述符](#jump)？如果是并且存在setter就调用setter方法。
-2. 属性的数据描述符中 writable 是否是false？是false的话在非严格模式下会静默失败，严格模式下TypeError。
-3. 如果不是访问描述符 切 writable为true，则将该值设置为属性的值。
+2. 属性的[数据描述符](#jump2)中 writable 是否是false？是false的话在非严格模式下会静默失败，严格模式下TypeError。
+3. 如果不是访问描述符 且 writable为true，则将该值设置为属性的值。
    
 如果不存在这个属性，[[Put]]操作会更加复杂...日后再说
 
 
 
 <span id = "jump">访问描述符</span>：[JavaScript中的getter和setter](https://github.com/PythonerNunu/front-end/blob/master/JavaScript%E4%B8%AD%E7%9A%84getter%E5%92%8Csetter.md)
+
+<span id = "jump">数据描述符</span>：[JavaScript中的属性描述符（也称为数据描述符）](https://github.com/PythonerNunu/front-end/blob/master/JavaScript%E4%B9%8B%E5%B1%9E%E6%80%A7%E6%8F%8F%E8%BF%B0%E7%AC%A6.md)
