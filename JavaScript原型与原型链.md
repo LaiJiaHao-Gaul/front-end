@@ -62,3 +62,12 @@ pullback(person1)
 - 通过Object.getPrototypeOf(对象) 可以获得一个对象的原型，也就是这个obj.\_\_proto__
 - 对象可以通过__proto__访问得到对象的原型
 
+两种把Bar.prototype 关联到 Foo.prototype的方法:
+
+``` javascript
+//ES6之前需要抛弃默认的 Bar.prototype
+Bar.prototype = OBject.create(Foo.prototype)
+
+//ES6开始可以直接修改现有的Bar.prototype
+Object.setPrototypeOf(Bar.prototype,Foo.prototype)
+```
