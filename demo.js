@@ -1,5 +1,3 @@
-import sayHi from './test.ts'
-sayHi()
 function Person(){
     this.age=10
     this.name='lily'
