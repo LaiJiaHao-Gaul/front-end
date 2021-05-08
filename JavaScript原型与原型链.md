@@ -13,9 +13,6 @@ console.log(person2.name) //'Jack'
 
 上面的代码片段很简单，很容易分析出来，name属性不是对象person1自身拥有的，而是在Person函数的prototype上的，在我们访问person1.name的时候，如果从对象自身找不到，那么就会去\[[prototype]]链上找，这一点我在其他文章讲过，那么\[[prototype]]到底是什么呢？
 
-
-
-
 如果是接触过面向类的语言的编程人员，在学习JavaScript的时候，很难不把JavaScript也当成面向类的语言，但JavaScript实际上纯粹是面向对象的，为什么这么说？
 
 在面向类的语言中，类可以被实例化多次，并且每个实际相互间是独立的，是完全没有联系的，但是在JavaScript中，用构造函数创建的每一个对象（我们称之为对象，而非实例），它们的\[[Prototype]]关联的是同一个对象，是相互关联的。看代码

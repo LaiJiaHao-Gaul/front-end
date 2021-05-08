@@ -2,7 +2,7 @@
 
 知识总结来源： 《你不知道的JavaScript 上卷》
 
-### 对象遍历  for...in 
+## 对象遍历  for...in
 
 ``` javascript
 var obj = {
@@ -28,7 +28,7 @@ for(var i in obj){
 
 ```
 
-### 数组遍历 for..of
+## 数组遍历 for..of
 
 es6之前的方法->通过遍历数组下标来指向值，而非直接遍历值。例如：
 
@@ -53,7 +53,6 @@ for(var i=0;i<arr.length;i++){
 //ccc
 ```
 
-
 然而在es6 有了for..of 就可以直接遍历数组的值
 
 ``` javascript
@@ -66,4 +65,5 @@ for(var i of arr){
 //aaa
 //bbb
 //ccc 直接得到了值。
+
 ```
