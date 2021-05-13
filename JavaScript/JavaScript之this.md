@@ -121,7 +121,6 @@ console.log(wangcai.shout)//嘻嘻嘻
 3、这个新对象会绑定到函数调用的this。
 4、如果函数没有返回其他对象，那么new表达式中的函数调用会自动返回这个新对象。
 
-
 ## 优先级
 
 new > call/apply/bind > 调用位置上下文 > 默认绑定
@@ -171,6 +170,28 @@ bar.call(obj2) //是2而不是3！！
 
 foo.call(obj1)()//2
 foo.call(obj2)()//3
+```
+
+``` javascript
+var name = 'global';
+var obj = {
+    name:'local',
+    foo:function(){
+        this.name='foo';
+    }.bind(window)
+}
+var bar = new obj.foo();
+setTimeout(function(){
+    console.log(window.name);
+},0)
+console.log(bar.name)
+var bar3 = bar2 = bar;
+bar2.name='foo2'
+console.log(bar3.name)
+
+//foo
+//foo2
+//global
 ```
 
 以上。
