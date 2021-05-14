@@ -41,7 +41,7 @@ Object.defineProperty(myObject,'a',{
 console.log(myObject.a) //2
 ```
 
-### writable决定属性是否可写
+## writable决定属性是否可写
 
 当writable为false时为不可写，不可写时对属性值的修改会静默失败（silently failed），严格模式下会出错TypeError。
 
@@ -80,7 +80,7 @@ console.log(myObject.a) //try.html:24 Uncaught TypeError:
 //可见严格模式下会报TypeError
 ```
 
-### Configurable决定属性描述符是否可以配置。
+## Configurable决定属性描述符是否可以配置
 
 Configurable为true则可配置，为false则不可配置，设置为false之后再也无法改变该属性的任何属性描述符，也就是无法再设置为true，是单向操作，无法撤销。
 
@@ -88,6 +88,6 @@ Configurable为true则可配置，为false则不可配置，设置为false之后
 
 Configurable为false时还会禁止删除这个属性，删除操作静默失败。
 
-### Enumerable决定属性是否会出现在对象的属性枚举中
+## Enumerable决定属性是否会出现在对象的属性枚举中
 
 Enumerable决定属性是否会出现在对象的属性枚举中，比如for..in循环，enumerable为false则不会出现在枚举中，但仍然可以正常的访问它。

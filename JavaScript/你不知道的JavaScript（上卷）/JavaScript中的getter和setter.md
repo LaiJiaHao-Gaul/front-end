@@ -46,7 +46,7 @@ console.log(Object.getOwnPropertyDescriptor(myObject,'a')) //Object
 
 但其实getter和setter是成对出现的，只定义一个的话通常会产生意料之外的行为。
 
-### setter
+## setter
 
 setter函数的定义需要注意的是必须定义一个形参，否则是会报错的。
 

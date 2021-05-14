@@ -77,6 +77,7 @@
 
 function New(fn,...arg){
     let newObj = Object.create(fn.prototype)
+    // Object.create()操作会创建一个对象并把这个对象的\[[Prototype]]关联到指定对象。
     let res = fn.call(newObj,arg)
     return res instanceof Object?res:newObj
 }
