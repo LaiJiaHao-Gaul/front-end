@@ -1,9 +1,12 @@
 .container {
     display: grid;
      /* grid-template-columns: 50px 100px 100px; */
-    grid-template-columns:100px 100px 100px;
-    grid-template-rows:100px 100px 100px;
-    /* grid-auto-flow: row dense; */
+    /* grid-template-columns:100px 100px 100px;
+    grid-template-rows:100px 100px 100px; */
+    grid-template-columns: repeat(3,100px);
+    grid-template-rows: repeat(3,100px);
+    grid-auto-flow: row dense;
+    /* justify-items: center; */
     gap: 2px;
     height: 400px; 
     /* place-items: center;
@@ -12,10 +15,21 @@
 .item{
     font-size: 25px;
     color:#fff;
-    height: 100px;
-    width: 100px;
+    text-align: center;
 }
 .one{
+    /* place-self: center; */
+    /* justify-self: center;
+    align-self: center; */
+    grid-area: 2/1/4/3;
+    /* grid-column: 2/4;
+    grid-row: 2/4; */
+    /* grid-column: 1/span 2; */
+    /* grid-row: 1/span 2; */
+    /*grid-column-end: 3;
+     grid-column-start: span 2;
+    grid-row-start: 2;
+    grid-row-end: 4; */
     background-color: #111;
 }
 .two {
