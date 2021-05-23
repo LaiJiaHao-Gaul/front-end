@@ -9,6 +9,8 @@
     height: 250px;
     color:#fff;
     font-size: 25px;
+
+    /* 居中代码 */
     display: grid;
     grid-template-columns:50px;
     grid-template-rows: 50px;
