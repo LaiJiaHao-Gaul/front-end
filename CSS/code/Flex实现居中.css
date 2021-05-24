@@ -1,0 +1,15 @@
+.container{
+    height: 300px;
+    width: 300px;
+    background-color: #eee;
+
+    /* 实现居中核心代码 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(95, 82, 82);
+}
