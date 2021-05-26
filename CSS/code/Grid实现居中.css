@@ -9,6 +9,7 @@
     height: 250px;
     color:#fff;
     font-size: 25px;
+    background-color: #eee;
 
     /* 居中代码 */
     display: grid;
@@ -16,5 +17,4 @@
     grid-template-rows: 50px;
     place-items: center;
     place-content: center;
-    background-color: #eee;
 }
