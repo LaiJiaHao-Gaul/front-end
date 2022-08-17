@@ -1,5 +1,5 @@
-function deepClone(obj:object){
-  let newObj = null
+function deepClone(obj){
+  let newObj:any=null
   if(obj instanceof Object){
     newObj = {};
   }
