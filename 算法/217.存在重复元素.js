@@ -21,15 +21,22 @@
 //     }
 //     return false
 // };
+// var containsDuplicate = function(nums) {
+//     nums.sort((a,b)=>a-b)
+//     for(let i=0;i<nums.length;i++){
+//         if(nums[i]===nums[i+1]){
+//             return true
+//         }
+//     }
+//     return false
+// };
 var containsDuplicate = function(nums) {
-    nums.sort((a,b)=>a-b)
-    for(let i=0;i<nums.length;i++){
-        if(nums[i]===nums[i+1]){
-            return true
-        }
+    let arr2 =[...new Set(nums)]
+    if(arr2.length !== nums.length){
+        return true
     }
     return false
-};
+}
 // @lc code=end
 
 
